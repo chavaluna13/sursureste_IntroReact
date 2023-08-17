@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react'
+import Sensei from './Components/Sensei';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// TAMBIÉN PODEMOS UTILIZAR UNA CLASE DE ES6 PARA DEFINIR UN COMPONENTE 
+
+class App extends React.Component {
+    constructor(){
+      super() // es necesario cuando necesitamos acceder a algunas variables de alguna clase padre
+
+      //estado inicial
+      this.state ={
+        name: "Felipe",
+        email: "felipeluna@gmail.com",
+        ocupation: "Code Sensei at Devf"
+      }
+    }
+  render (){
+    return(
+        <div className="App">
+          {/* PROPS (QUE VIENE DE PROPIEDADES) SON DATOS QUE DEVUELVE UN ELEMENTO DE REACT  */}
+            <h1>Props en React! </h1>
+            <Sensei name={this.state.name} email={this.state.email} ocupation={this.state.ocupation}/> 
+            <button onClick={()=> this.setState({name:"Cesar", email:"cesar@gmail.com"})}>Actualizar</button>
+        </div>
+    )
+  }
 }
 
-export default App;
+export default App
