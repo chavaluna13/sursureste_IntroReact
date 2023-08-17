@@ -14,8 +14,6 @@ export default class Sensei extends React.Component {
              <h2>{this.props.email}</h2>
              <h3>{this.props.ocupation}</h3>
             </div>
-
-
         )
     }
 }
