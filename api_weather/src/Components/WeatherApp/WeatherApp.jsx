@@ -1,16 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
+// import {useState} from 'react'
 import './style.css'
 import search_icon from '../Assets/search.png'
 import cloud_icon from '../Assets/cloud.png'
 import humidity_icon from '../Assets/humidity.png'
 import wind_icon from '../Assets/wind.png'
-
-
+import drizzle_icon from '../Assets/drizzle.png'
+import clear_icon from '../Assets/clear.png'
+import rain_icon from '../Assets/rain.png'
+import snow_icon from '../Assets/snow.png'
 
 
 
 function WeatherApp() {
        {/* TODA NUESTRA LÓGICA  */}
+
+       {/* variable , función */}
+    const [icons , setWicon] = useState(cloud_icon) // GUARDAR EL INPUT Y EL ESTADO 
 
 
       const search = async () => {
@@ -37,12 +43,25 @@ function WeatherApp() {
                 wind[0].innerHTML=data.wind.speed+"km/h"
                 temprature[0].innerHTML=data.main.temp+"°C"
                 location[0].innerHTML=data.name
+
+           if(data.weather[0].icon==="01d" || data.weather[0].icon==="01n"){
+            setWicon(clear_icon)
+           }else if (data.weather[0].icon==="02d" || data.weather[0].icon==="02n"){
+            setWicon(cloud_icon)
+           }else if (data.weather[0].icon==="03d" || data.weather[0].icon==="03n"){
+            setWicon(drizzle_icon)
+           }else if (data.weather[0].icon==="09d" || data.wehaet[0].icon==="09n"){
+            setWicon(rain_icon)
+           }else if(data.weather[0].icon==="10d" || data.weather[0].icon==="10n"){
+            setWicon(rain_icon)
+           }else if(data.weather[0].icon==="13d" || data.weather[0].icon==="13n"){
+            setWicon(snow_icon)
+           }else{
+            setWicon(clear_icon)
+           }
       }
      
-      
-
-
-
+    
 
   return (
     //  TODA NUESTRA ESTRUCTURA HTML
