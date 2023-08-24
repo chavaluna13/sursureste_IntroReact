@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-// import {useState} from 'react'
+import React , {useState} from 'react'
+//  import {useState} from 'react'
 import './style.css'
 import search_icon from '../Assets/search.png'
 import cloud_icon from '../Assets/cloud.png'
@@ -16,7 +16,7 @@ function WeatherApp() {
        {/* TODA NUESTRA LÓGICA  */}
 
        {/* variable , función */}
-    const [icons , setWicon] = useState(cloud_icon) // GUARDAR EL INPUT Y EL ESTADO 
+    const [wicon, setWicon] = useState(cloud_icon) // GUARDAR EL INPUT Y EL ESTADO 
 
 
       const search = async () => {
@@ -41,24 +41,26 @@ function WeatherApp() {
                 {/* MANIPULAR ELEMENTO */}
                 humidity[0].innerHTML=data.main.humidity+"%"
                 wind[0].innerHTML=data.wind.speed+"km/h"
-                temprature[0].innerHTML=data.main.temp+"°C"
+                temprature[0].innerHTML=data.main.temp+"°F"
                 location[0].innerHTML=data.name
 
-           if(data.weather[0].icon==="01d" || data.weather[0].icon==="01n"){
-            setWicon(clear_icon)
-           }else if (data.weather[0].icon==="02d" || data.weather[0].icon==="02n"){
-            setWicon(cloud_icon)
-           }else if (data.weather[0].icon==="03d" || data.weather[0].icon==="03n"){
-            setWicon(drizzle_icon)
-           }else if (data.weather[0].icon==="09d" || data.wehaet[0].icon==="09n"){
-            setWicon(rain_icon)
-           }else if(data.weather[0].icon==="10d" || data.weather[0].icon==="10n"){
-            setWicon(rain_icon)
-           }else if(data.weather[0].icon==="13d" || data.weather[0].icon==="13n"){
-            setWicon(snow_icon)
-           }else{
-            setWicon(clear_icon)
-           }
+                if(data.weather[0].icon==="01d" || data.weather[0].icon==="01n"){
+                    setWicon(clear_icon)
+                   }else if (data.weather[0].icon==="02d" || data.weather[0].icon==="02n"){
+                    setWicon(cloud_icon)
+                   }else if (data.weather[0].icon==="03d" || data.weather[0].icon==="03n"){
+                    setWicon(drizzle_icon)
+                   }else if (data.weather[0].icon==="04d" || data.weather[0].icon==="04n"){
+                    setWicon(drizzle_icon)
+                   }else if (data.weather[0].icon==="09d" || data.weather[0].icon==="09n"){
+                    setWicon(rain_icon)
+                   }else if(data.weather[0].icon==="10d" || data.weather[0].icon==="10n"){
+                    setWicon(rain_icon)
+                   }else if(data.weather[0].icon==="13d" || data.weather[0].icon==="13n"){
+                    setWicon(snow_icon)
+                   }else{
+                    setWicon(clear_icon)
+                   }
       }
      
     
@@ -74,10 +76,10 @@ function WeatherApp() {
                     </div>
              </div>
                  <div className="weather-images">
-                    <img className="icon" src={cloud_icon} alt="cloud_icon"  />
+                    <img className="icon" src={wicon} alt="cloud_icon"  />
                  </div>
 
-                 <div className="weather-temp">24°C</div>
+                 <div className="weather-temp">24°F</div>
                  <div className="weather-location">London</div>
                  <div className="data-container">
                     <div className="element">
