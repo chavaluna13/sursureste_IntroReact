@@ -10,7 +10,8 @@ const Character = ({character}) => {
                         <div className="card" style={{minWidth: "250px"}}>
                             <img className="card-img-top" src={item.image} alt="character"/>
                             <div className="card-body">
-                                <h3 className="card-title">{item.name}</h3>
+                                <h2 className="card-title">{item.name}</h2>
+                                <h3 className="card-title">ID: {item.id}</h3>
                                 <hr />
                                 <p className="card-text">Species: {item.species}</p>
                                 <p className="card-text">Gender: {item.gender}</p>
