@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import Navbar from './Components/Navbar/Navbar.js';
+import Character from './Components/Character/Character.js';
 
 function App() {
   // TENEMOS NUESTRA LÓGICA
@@ -34,6 +35,11 @@ function App() {
   return (
     <>
      <Navbar brand="Rick and Morty"/>
+
+    <div className="container">
+      <Character character={character} />
+    </div>
+
     </>
   );
 }
